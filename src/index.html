@@ -9,98 +9,93 @@
 </head>
 
 <body>
-    <div  class="container">
-    <nav class="navbar navbar-dark bg-dark">
-        <!-- Navbar content -->
-        <h6>
-            <a class="navbar-brand" href="#">MyGiTBOT</a>
-        </h6>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <!-- Navbar content -->
+            <h6>
+                <a class="navbar-brand" href="#">MyGiTBOT</a>
+            </h6>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
 
 
-    <div action="">
-        <input class="form-control" type="text" id="repoInput" placeholder="Write your instruction to BOT here!">
-        <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" id="exeQueryBtn" role="button" aria-expanded="false"
-                aria-controls="collapseExample">
-                Execute Query
-            </a>
+        <div action="">
+            <input class="form-control" type="text" id="repoInput" placeholder="Write your instruction to BOT here!">
+            <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" id="exeQueryBtn" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Execute Query
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body" id="mainDiv">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+                    craft beer labore wes anderson cred nesciunt sapiente ea proident.
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Launch demo modal
-            </button>
-
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body" id="mainDiv">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-                craft beer labore wes anderson cred nesciunt sapiente ea proident.
-
-                <div class="form-group">
-                    <label for="formGroupExampleInput">REpository Name</label>
-                    <input type="text" class="form-control" id="repoName">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Description</label>
-                    <input type="text" class="form-control" id="repoDesc" placeholder="Enter Description here">
-                </div>
-
-            </div>
-            <button class="btn btn-primary" type="submit" id="createRepoBtn">Confirm</button>
-            <button class="btn btn-primary" type="submit" id="cancleRepoBtn">Terminate</button>
-        </div>
-    </div>
-
-
-
-    <div class="modal fade" id="repoNameModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title alert alert-info" id="repoTitle">Select The Repository Name</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="dropdown">
-                        <select class="btn btn-secondary dropdown-toggle" id="selectitemContainer" class="selectpicker">
-
-                        </select>
-
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">REpository Name</label>
+                        <input type="text" class="form-control" id="repoName">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Description</label>
+                        <input type="text" class="form-control" id="repoDesc" placeholder="Enter Description here">
+                    </div>
 
-                <div class="form-group">
+                </div>
+                <button class="btn btn-primary" type="submit" id="createRepoBtn">Confirm</button>
+                <button class="btn btn-primary" type="submit" id="cancleRepoBtn">Terminate</button>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="repoNameModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title alert alert-info" id="repoTitle">Select The Repository Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="dropdown">
+                            <select class="btn btn-secondary dropdown-toggle" id="selectitemContainer" class="selectpicker">
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="issueTitle1" class="alert alert-info">Enter Title</label>
                         <input type="text" class="form-control" id="issueTitle" placeholder="title input">
-                </div>
+                    </div>
 
-                <div class="form-group">
+                    <div class="form-group">
                         <label for="issueTextDesc1" class="alert alert-info">Eneter Issue Description</label>
                         <textarea class="form-control" id="issueDesc" rows="3"></textarea>
-                </div>
+                    </div>
 
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="postIssueBtn" data-dismiss="modal">Post Issue</button>
-                    <button type="button" class="btn btn-primary" id="confirmRepoBtn">Fetch Issue</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="postIssueBtn" data-dismiss="modal">Post Issue</button>
+                        <button type="button" class="btn btn-primary" id="confirmRepoBtn">Fetch Issue</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="form-group" >
-            <label for="exampleFormControlSelect1" class="list-group-item">LIST OF ISSUE</label>
-            <section multiple class="form-control" style="height: 325px; height: 110px;  overflow: scroll; " id="issueListContainer">
-              
-            </section>
-          </div>
+        <label for="exampleFormControlSelect1" class="list-group-item">LIST OF ISSUE</label>
+        <ul class="list-group container"   id="isuLstContainer" style="height: 325px; overflow: scroll; ">
+          
+           
+        </ul>
 
-        </div>
+
+    </div>
 </body>
 
 </html>

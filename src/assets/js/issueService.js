@@ -73,6 +73,44 @@ export class IssueService {
     })
     }
 
+
+closeIssue(respoName,title,issueNo){
+//Hello-World/issues/548
+    let req = new Request(uri+respoName+"/issues"+issueNo, {
+        method: 'PATCH',
+        headers: h,
+        mode: 'cors',
+        body: JSON.stringify({
+            "title": title,
+            "body": "closinf the issue",
+            "assignees": [
+              "deekumar18"
+            ],
+            "labels": [
+              "bug"
+            ]
+          })
+    
+    });
+
+       
+    fetch(req)
+    .then((response)=>{
+        if(response.ok){
+            alert('issue closed');
+            return response.json();
+        } else{
+            throw new Error('BAD HTTP STUFF');
+        }
+    })
+    .then((jsonData)=>{
+        console.log(jsonData);
+    })
+    .catch((err)=> {
+        console.log("Error:",err.message);
+    })
+}
+
 /*
     getIssueNames() {
         fetch(req)

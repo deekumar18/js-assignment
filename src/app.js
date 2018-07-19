@@ -6,7 +6,6 @@ import { RepoService } from './assets/js/repoService'
 import { IssueService } from './assets/js/issueService'
 
 
-const temp = require('./assets/js/createIssueService');
 const recastVal = require('./assets/js/recast');
 
 var _repoService = new RepoService();
@@ -17,6 +16,8 @@ var tempData;
 var create_repo;
 
 //temp();
+
+$("#isuLstContainer").hide();
 
 $("#exeQueryBtn").click(function (e) {
     tempData = recastVal();
@@ -43,25 +44,39 @@ $(document).ready(function () {
             issueData = data;
             console.log("issue names >>>>>>>>>>>>>>>>>>>>>" + issueData);
 
-            var repoContainer = document.getElementById("issueListContainer");
+           // var repoContainer = document.getElementById("issueListContainer");
+            const repoContainer = document.getElementById("isuLstContainer");
+            //isuLstContainer
             var x;
             issueData.forEach(element => {
-                console.log("issue names >>>>>>>>>>>>>>>>>>>>>" + element.number + "---" + element.title);
-                x = document.createElement("p");
-                var textNode = document.createTextNode("Issue Number-" + element.number + "---" + "Issue Title-" + element.title);
 
-                //x.setAttribute("value", "Issue Number-"+element.number+"---"+"Issue Title-"+element.title);
-                x.appendChild(textNode);
-                //x.appendChild(`<button type="submit" class="btn btn-primary">CLOSE ISSUE</button>`);
-                var temp = "Issue Number-" + element.number + "---" + "Issue Title-" + element.title;
-                x.innerHTML = temp + `<a id="closeIssueBtn" href="#" style="
-                  float: right;
-                    "> Close Issue</a>`;
-                // var t = document.createTextNode("value", "Issue Number-"+element.id+"---"+"Issue Title-"+element.title);
-                // x.appendChild(t);
-                repoContainer.appendChild(x);
+                debugger;
+                var btnNo = element.number;
+          
+                    const li = document.createElement('li');
+                    li.setAttribute('id', 'closeBtn'+btnNo);
+                    const isuName = document.createElement('span');
+                    const closeBtn = document.createElement('span');
+
+                    isuName.textContent = "Issue Number-"+element.number+"---"+"Issue Title-"+element.title;
+                    closeBtn.textContent = "Close Issue";
+
+                    isuName.classList.add('list-group-item');
+                    isuName.classList.add('list-group-item-info');
+                    
+                 
+
+                    closeBtn.classList.add('btn-primary');
+                    
+               
+                                       
+                    li.appendChild(isuName);
+                    li.appendChild(closeBtn);
+                  
+                    repoContainer.appendChild(li);
 
                 $("#repoNameModel").modal("hide");
+                $("#isuLstContainer").show();
             });
         });
     })
@@ -77,8 +92,16 @@ $(document).ready(function () {
         _issueSevice.createIssue(repoName, issue_title, issue_desc);
     })
 
+/*
+    $("#closeIssueBtn").(function (e) {
+        alert("close Issue");
 
-
+        var repoName = $("#selectitemContainer").val();
+        var issue_title = $("#issueTitle").val();
+        var issue_desc = $("#issueDesc").val();
+        _issueSevice.closeIssue(respoName,title,issueNo);
+    })
+*/
 
 
 });

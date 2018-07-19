@@ -25,7 +25,7 @@ export class CollaboratorService {
     addCollaborator(repoName, otherUser) {
         alert(">>>>>Collaborator");
         let req = new Request(uri+repoName+"/collaborators/"+otherUser+"?permission=admin", {
-            method: 'POST',
+            method: 'PUT',
             headers: h,
             mode: 'cors',
         });
