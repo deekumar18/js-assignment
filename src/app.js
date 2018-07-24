@@ -28,7 +28,7 @@ $("#exeQueryBtn").click(function (e) {
 $(document).ready(function () {
 
     $("#createRepoBtn").click(function (e) {
-        alert("create Repo");
+        //alert("create Repo");
         var repo_name = document.getElementById("repoName").value;
         var repo_desc = document.getElementById("repoDesc").value;
 
@@ -49,8 +49,7 @@ $(document).ready(function () {
             //isuLstContainer
             var x;
             issueData.forEach(element => {
-
-                debugger;
+                
                 var btnNo = element.number;
           
                     const li = document.createElement('li');
@@ -84,8 +83,7 @@ $(document).ready(function () {
 
 
     $("#postIssueBtn").click(function (e) {
-        alert("create Issue");
-
+        //alert("create Issue");
         var repoName = $("#selectitemContainer").val();
         var issue_title = $("#issueTitle").val();
         var issue_desc = $("#issueDesc").val();

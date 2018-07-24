@@ -1,8 +1,8 @@
 const uri = 'https://api.github.com/repos/deekumar18/';
-let token = 'token c8c16da2dfaac4dd4931bae68c684e43b7b98ef1';
+let token = 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942';
 let h = new Headers();
 h.append('Content-Type', 'application/json');
-h.append('Authorization', 'token c8c16da2dfaac4dd4931bae68c684e43b7b98ef1');
+h.append('Authorization', 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942');
 let req = new Request(uri, {
     method: 'GET',
     headers: h,
@@ -60,6 +60,7 @@ export class IssueService {
     fetch(req)
     .then((response)=>{
         if(response.ok){
+            alert('issue created successfully!');
             return response.json();
         } else{
             throw new Error('BAD HTTP STUFF');

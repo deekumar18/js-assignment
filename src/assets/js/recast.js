@@ -1,9 +1,11 @@
 
 import { RepoService } from './repoService'
 import { CollaboratorService } from './collaboratorService'
+import { getModelView } from './issueModelView'
 //const reponames = require('./getRepoService');
 var _repoService = new RepoService();
 var _collaboratorService = new CollaboratorService();
+var _getModelView = new getModelView();
 
 const uri = 'https://api.recast.ai/v2/request?text=';
 let token = 'Token 67051a0a2cc27d6f684995b8c6590db1';
@@ -20,7 +22,7 @@ let req = new Request(uri, {
 
 function getBotValue() {
     var queryCommand = document.getElementById('repoInput').value;
-    alert(queryCommand);
+    //alert(queryCommand);
     //console.log('desc'); 
 
 
@@ -32,8 +34,10 @@ function getBotValue() {
                 repoNames = data;
                 console.log("reponames >>>>>>>>>>>>>>>>>>>>>" + repoNames);
                 var repoContainer = document.getElementById("selectitemContainer");
-                var x;               
-                repoNames.forEach(element => {
+                var x;    
+                _getModelView.getModelView(repoNames,x,repoContainer);
+                
+              /*  repoNames.forEach(element => {
 
                     x = document.createElement("option");
                     x.setAttribute("id", element.name);
@@ -44,7 +48,7 @@ function getBotValue() {
 
                     repoContainer.appendChild(x);
                     $('#repoNameModel').modal();
-                });
+                });*/
             })
     }
 
@@ -61,14 +65,16 @@ function getBotValue() {
                repoName = response.results.entities.repository[0].value; 
                otherUser = response.results.entities.user[0].value;       
                console.log(repoName);
-               console.log(otherUser);             
+               console.log(otherUser);  
+               debugger;
+               _collaboratorService.addCollaborator(repoName, otherUser);            
             }).catch(function() {
                console.log("There is some error in resolving name of repository from sentence...");
             });
          }).catch(function() {
            console.log("There is some error in recast.ai api call...");
-        });
-        _collaboratorService.addCollaborator(repoName, otherUser); 
+        });    
+       
     }
 
     fetch(uri + queryCommand, {

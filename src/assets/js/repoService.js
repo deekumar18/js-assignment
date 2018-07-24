@@ -1,8 +1,8 @@
 const uri = 'https://api.github.com/user/repos';
-let token = 'token c8c16da2dfaac4dd4931bae68c684e43b7b98ef1';
+let token = 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942';
 let h = new Headers();
 h.append('Content-Type', 'application/json');
-h.append('Authorization', 'token c8c16da2dfaac4dd4931bae68c684e43b7b98ef1');
+h.append('Authorization', 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942');
 
 let req = new Request(uri, {
     method: 'GET',
@@ -23,7 +23,7 @@ export class RepoService {
         };
     }
 
-    getRepoNames(url) {
+    getRepoNames() {       
         this.fetchOptions.method = "GET";
         delete this.fetchOptions.body;
         var dataPromise = fetch(uri, this.fetchOptions);
@@ -73,24 +73,7 @@ export class RepoService {
             .catch((err) => {               
                 console.log("Error:", err.message);
             })
-    }
-
-    /*  getRepoNames() {
-          //var promise Promise
-          return fetch(req)
-              .then((response) => {
-                  if (response.ok) {
-                      return response.json();
-                  } else {
-                      throw new Error('BAD HTTP STUFF');
-                  }
-              });
-              // .then((jsonData) => {
-              //     console.log(jsonData);
-              // })
-              // .catch((err) => {
-              //     console.log("Error:", err.message);
-              // })}*/
+    }  
 }
 
 

@@ -1,10 +1,10 @@
 const uri = 'https://api.github.com/repos/deekumar18/';
-let token = 'token c8c16da2dfaac4dd4931bae68c684e43b7b98ef1';
+let token = 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942';
 let h = new Headers();
 h.append('Content-Type', 'application/json');
-h.append('Authorization', 'token c8c16da2dfaac4dd4931bae68c684e43b7b98ef1');
+h.append('Authorization', 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942');
 let req = new Request(uri, {
-    method: 'GET',
+    method: 'PUT',
     headers: h,
     mode: 'cors'
 });
@@ -22,9 +22,13 @@ export class CollaboratorService {
     }
 
 
+
     addCollaborator(repoName, otherUser) {
-        alert(">>>>>Collaborator");
-        let req = new Request(uri+repoName+"/collaborators/"+otherUser+"?permission=admin", {
+        console.log('desc');  
+        let reqStr = "https://api.github.com/repos/deekumar18/"+repoName+"/collaborators/"+otherUser;
+        debugger;
+        console("url>>>>>>>>>>>>>>>>>>"+reqStr);
+        let req = new Request(reqStr, {
             method: 'PUT',
             headers: h,
             mode: 'cors',
@@ -32,6 +36,36 @@ export class CollaboratorService {
         
     fetch(req)
     .then((response)=>{
+        if(response.ok){
+            alert('collaporation made successfully!');
+            return response.json();
+        } else{
+            throw new Error('BAD HTTP STUFF');
+        }
+    })
+    .then((jsonData)=>{
+        console.log(jsonData);
+    })
+    .catch((err)=> {
+        console.log("Error:",err.message);
+    })
+    }
+
+    /*addCollaborator(repoName, otherUser) {
+        debugger;
+        alert(">>>>>Collaborator");
+        let reqStr = "https://api.github.com/repos/deekumar18/"+repoName+"/collaborators/"+otherUser;
+        console("request string>>>>>>>>>>>"+reqStr);
+        let req = new Request(reqStr, {
+            //https://api.github.com/repos/deekumar18/helloword/collaborators/apodi
+            method: 'PUT',
+            headers: h,
+            mode: 'cors',
+        });
+        
+    fetch(req)
+    .then((response)=>{
+        debugger;
         alert('with in response');
         if(response.ok){
             alert("collaboration successfully");
@@ -53,6 +87,6 @@ export class CollaboratorService {
 
     }
 
-
+*/
 
 }
