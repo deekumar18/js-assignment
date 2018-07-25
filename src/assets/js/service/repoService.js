@@ -1,8 +1,8 @@
 const uri = 'https://api.github.com/user/repos';
-let token = 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942';
+let token = 'token 98229cf2a67a304315ef0bd6bf153c6824d9ac99';
 let h = new Headers();
 h.append('Content-Type', 'application/json');
-h.append('Authorization', 'token 792a1f6bf2623b63aac06cd602a4b17cd8914942');
+h.append('Authorization', 'token 98229cf2a67a304315ef0bd6bf153c6824d9ac99');
 
 let req = new Request(uri, {
     method: 'GET',

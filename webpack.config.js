@@ -70,7 +70,7 @@ const config = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: './assets/media/'
+              outputPath: './assets/img/'
             }
           }
         ]
@@ -96,7 +96,7 @@ const config = {
       
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist/assets/media"),
+    contentBase: path.resolve(__dirname, "./dist/assets/img"),
     compress: true,
     port: 12000,
     stats: 'errors-only',

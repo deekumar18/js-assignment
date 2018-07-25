@@ -1,7 +1,7 @@
 
-import { RepoService } from './repoService'
-import { CollaboratorService } from './collaboratorService'
-import { getModelView } from './issueModelView'
+import { RepoService } from './service/repoService'
+import { CollaboratorService } from './service/collaboratorService'
+import { getModelView } from './view/issueModelView'
 //const reponames = require('./getRepoService');
 var _repoService = new RepoService();
 var _collaboratorService = new CollaboratorService();
@@ -19,7 +19,6 @@ let req = new Request(uri, {
     headers: h,
 });
 
-
 function getBotValue() {
     var queryCommand = document.getElementById('repoInput').value;
     //alert(queryCommand);
@@ -35,20 +34,7 @@ function getBotValue() {
                 console.log("reponames >>>>>>>>>>>>>>>>>>>>>" + repoNames);
                 var repoContainer = document.getElementById("selectitemContainer");
                 var x;    
-                _getModelView.getModelView(repoNames,x,repoContainer);
-                
-              /*  repoNames.forEach(element => {
-
-                    x = document.createElement("option");
-                    x.setAttribute("id", element.name);
-                    x.setAttribute("value", element.name);
-                    var t = document.createTextNode(element.name);
-                    x.appendChild(t);
-
-
-                    repoContainer.appendChild(x);
-                    $('#repoNameModel').modal();
-                });*/
+                _getModelView.getModelView(repoNames,x,repoContainer);            
             })
     }
 
@@ -85,8 +71,9 @@ function getBotValue() {
         }
     }).then((response) => {
         response.json().then(response => {
+            debugger;
             console.log(response);
-            repoName = response.results.entities.repository[0].value;
+            repoName = response.results.entities.repository[0].value; 
             console.log(repoName);
             //document.getElementById("repository-name").value = repoName;
             document.getElementById("repoName").value = repoName;
