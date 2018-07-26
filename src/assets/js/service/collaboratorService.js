@@ -1,9 +1,9 @@
 
 const uri = 'https://api.github.com/repos/deekumar18/';
-let token = 'token 98229cf2a67a304315ef0bd6bf153c6824d9ac99';
+let token = 'token afa9f874c515e260bdf3f82cb18524b472c5aeb2';
 let h = new Headers();
 h.append('Content-Type', 'application/json');
-h.append('Authorization', 'token 98229cf2a67a304315ef0bd6bf153c6824d9ac99');
+h.append('Authorization', 'token afa9f874c515e260bdf3f82cb18524b472c5aeb2');
 let req = new Request(uri, {
     method: 'PUT',
     headers: h,
@@ -21,9 +21,7 @@ export class CollaboratorService {
             cache: "default"
         };
     }
-
-
-
+    
     addCollaborator(repoName, otherUser) {
         console.log('desc');  
         let reqStr = "https://api.github.com/repos/deekumar18/"+repoName+"/collaborators/"+otherUser;
@@ -51,43 +49,4 @@ export class CollaboratorService {
         console.log("Error:",err.message);
     })
     }
-
-    /*addCollaborator(repoName, otherUser) {
-        debugger;
-        alert(">>>>>Collaborator");
-        let reqStr = "https://api.github.com/repos/deekumar18/"+repoName+"/collaborators/"+otherUser;
-        console("request string>>>>>>>>>>>"+reqStr);
-        let req = new Request(reqStr, {
-            //https://api.github.com/repos/deekumar18/helloword/collaborators/apodi
-            method: 'PUT',
-            headers: h,
-            mode: 'cors',
-        });
-        
-    fetch(req)
-    .then((response)=>{
-        debugger;
-        alert('with in response');
-        if(response.ok){
-            alert("collaboration successfully");
-            return response.json();
-        } else{
-            throw new Error('BAD HTTP STUFF');
-        }
-    })
-    .then((jsonData)=>{
-        console.log(jsonData);
-    })
-    .catch((err)=> {
-        console.log("Error:",err.message);
-    })
-    }
-
-
-    addCollaborator(repoName, otherUser) {
-
-    }
-
-*/
-
 }
